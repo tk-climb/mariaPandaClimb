@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>제발!!!!!!!!!!!!</h1>
+    
+        <div>
+        <H1>DB 연동 확인</H1>
+ 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>userCode</th>
+                    <th>userName</th>
+                    <h1 th:text="${greet}">Tymeleaf Test Page</h1>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="row : ${AllList}">
+                    <td th:text="${row.noticeNo}"></td>
+                    <td th:text="${row.userNo}"></td>
+                    <td th:text="${row.noticeTitle}"></td>
+                    <td th:text="${row.noticeContent}"></td>
+                    <td th:text="${row.noticeDate}"></td>
+                    <td th:text="${row.noticeHead}"></td>
+                </tr>
+            </tbody>
+ 
+        </table>
+ 
+    </div>
+</body>
+</html>

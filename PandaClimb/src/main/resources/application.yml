@@ -1,0 +1,30 @@
+--- # change port
+server:
+  port: 8085
+  
+--- # Thymeleaf
+spring:
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates # classpath:/templates
+    suffix: .html
+
+--- # mariadb
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/pandadb
+    username: panda
+    password: panda
+    
+--- # mybatis
+mybatis:
+  configuration:
+    multiple-result-sets-enabled: false
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    jdbc-type-for-null: varchar
+    default-fetch-size: 500
+  type-aliases-package: com.study.panda.common.dto
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml
