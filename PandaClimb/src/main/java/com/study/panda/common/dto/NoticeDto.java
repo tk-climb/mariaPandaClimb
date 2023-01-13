@@ -17,5 +17,5 @@ public class NoticeDto {
 	   private String noticeContent;
 	   private Date noticeDate;
 	   private String noticeHead;
-	   
+	   private String noticeHeader;
 }
