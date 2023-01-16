@@ -42,8 +42,8 @@ public class UserController {
 		public String joinSuccess() {
 			return "/user/joinSuccess";
 		}
-		
-		// 로그인
+			
+			// 로그인
 		@GetMapping(value="/login.do")
 		public String login() {
 			return "/user/login";

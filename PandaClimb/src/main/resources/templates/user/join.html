@@ -14,28 +14,110 @@
 	<div>
 		<form action = "join.do" method = "post" >
 			
-		<div class="container-600 mt-40">
-			<div class="row center">
-				<h1>가입 정보 입력</h1>
+	<div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="p-4  rounded">
+				<h1 class="text-center">회원 가입</h1>
 			</div>
-			<div class="row center">
-				아이디 : <input name="userId" placeholder="아이디" type="text" required>
+		</div>
+	</div>
+   
+ <div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+				<input type="text" name="userId" class="form-control rounded" placeholder="아이디" required>
+                	<label>
+						아이디
+						<i class="fa-solid fa-asterisk text-danger"></i>
+					</label>
+				<div class="valid-feedback">올바른 아이디 형식입니다</div>
+				<div class="invalid-feedback">영문 소문자로 시작하고 숫자가 포함된 8~20자로 작성하세요</div>
+				<div class="NNNNN">이미 사용 중인 아이디입니다.</div>
 			</div>
-			<div class="row center">
-				비밀번호 : <input name="userPw" placeholder="비밀번호"  type="password" required>
-			</div>
-			<div class="row center">
-				닉네임 : <input name="userNick" placeholder="닉네임" type="text" required>
-			</div>
-			<div class="row center">
-				이메일 : <input name="userEmail"  placeholder="이메일" type="email">
-			</div>
-			<div class="row center">
-				<button class="btn btn-positive" type="submit">가입하기</button>
-			</div>
+		</div>
+	 </div>
+            
 		
+	<div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+				<input type="password" name="userPw" class="form-control rounded" placeholder="비밀번호" required>
+					<label>
+					비밀번호
+ 					<i class="fa-solid fa-asterisk text-danger"></i>
+					</label>
+					<div class="valid-feedback">올바른 비밀번호 형식입니다</div>
+					<div class="invalid-feedback">비밀번호는 특수문자, 숫자, 영문 대소문자가 반드시 1개 이상 포함된 8~16자로 작성하세요</div>
+				</div>
+			</div>
+		</div>
+		
+
+	 <div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+				<input type="password" id="userPw-re" class="form-control rounded" placeholder="비밀번호 확인" required>
+					<label>
+ 					비밀번호 확인
+					<i class="fa-solid fa-asterisk text-danger"></i>
+					</label>
+					<div class="valid-feedback">비밀번호가 일치합니다</div>
+					<div class="invalid-feedback">비밀번호가 일치하지 않습니다</div>
+			</div>
+		</div>
+	</div>
+    
+	<div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+    			<input type="text" name="userNick" class="form-control rounded" placeholder="닉네임" required >
+              		<label>
+                    닉네임
+                    <i class="fa-solid fa-asterisk text-danger"></i>
+                    </label>
+                    <div class="valid-feedback">올바른 닉네임 형식입니다</div>
+                    <div class="invalid-feedback">닉네임은 한글 3~10글자로 작성하세요</div>
+			</div>
+		</div>
+ 	</div>
+		
+		<input type="hidden" name="certificationId" value="${certificationId}">
+			
+		<div class="mt-4">
+			<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			
+				<div class="d-flex justify-content-center align-items-center flex-wrap mb-3">
+				
+					<div class=" d-flex justify-content-center align-items-center flex-fill mb-3 form-group">
+						
+						<div class="input-group form-floating">
+						
+							<input type="text" name="userEmail" class=" form-control rounded"  placeholder="이메일"  required>
+							
+							<label>
+							이메일 
+							<i class="fa-solid fa-asterisk text-danger"></i>
+							</label>
+							
+							<button class="send-btn btn rounded " style="background-color : #E6E6E6; color:#3E4684;" disabled type="button" >인증번호 발송</button>
+							<div class="valid-feedback">올바른 이메일 형식입니다.</div>
+							<div class="invalid-feedback">이메일 형식을 확인해주세요</div>		
+						</div>
+						
+					</div>  
+						
+				</div>
+		
+	<div class="mt-4">
+		<div class="col-8 offset-2 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="mb-5">
+			<button class="btn btn-lg rounded w-100 join-btn" style="background-color : #E6E6E6; color:#3E4684;">가입하기</button>
+			 </div>
+		</div> 
+	</div>
 		</form>
 	</div>
 	
 </body>
+
 </html>

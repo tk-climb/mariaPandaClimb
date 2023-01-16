@@ -81,6 +81,7 @@
 				success:function(map) {
 					if(map.message == "입력된 회원정보가 존재하지 않습니다"){
 						alert(map.message);
+						btn.prop("disabled", false);
 						return false;
 					}
 				window.location = ("/home.do")
