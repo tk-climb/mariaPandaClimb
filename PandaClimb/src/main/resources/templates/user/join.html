@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div th:replace="/common/header.html"></div>
+</head>
+
+<body>
+<div style="padding-top:75px;"></div>
+	<div>
+		<form action = "join.do" method = "post" >
+			
+		<div class="container-600 mt-40">
+			<div class="row center">
+				<h1>가입 정보 입력</h1>
+			</div>
+			<div class="row center">
+				아이디 : <input name="userId" placeholder="아이디" type="text" required>
+			</div>
+			<div class="row center">
+				비밀번호 : <input name="userPw" placeholder="비밀번호"  type="password" required>
+			</div>
+			<div class="row center">
+				닉네임 : <input name="userNick" placeholder="닉네임" type="text" required>
+			</div>
+			<div class="row center">
+				이메일 : <input name="userEmail"  placeholder="이메일" type="email">
+			</div>
+			<div class="row center">
+				<button class="btn btn-positive" type="submit">가입하기</button>
+			</div>
+		
+		</form>
+	</div>
+	
+</body>
+</html>
