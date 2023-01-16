@@ -70,6 +70,7 @@ public class UserController {
 				model.addAttribute("userLoign", userLoign);
 				return map;
 			}
+			
 		}
 
 		// 로그아웃
