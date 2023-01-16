@@ -17,11 +17,4 @@ public class NoticeDto {
 	   private String noticeContent;
 	   private Date noticeDate;
 	   private String noticeHead;
-	   
-	   private int noticeNo1;
-	   private String userNo2; 
-	   private String noticeTitle3;
-	   private String noticeContent4;
-	   private Date noticeDate5;
-	   private String noticeHead6;
 }

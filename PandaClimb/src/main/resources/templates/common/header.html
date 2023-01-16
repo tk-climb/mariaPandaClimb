@@ -1,0 +1,271 @@
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>header</title>
+
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+        #topMenu{
+            z-index: 1;
+            position: fixed;
+            height: 80px;
+            width: 100%;
+        }
+        #logo{
+    		width:200px;
+    		height:50px;
+    		margin-left:30px;
+    		margin-right:25%;
+    	}
+
+        .content{
+            height:100%;
+            font-size:30px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .slide-open{
+            display: none;
+            position:absolute;
+            top:20;
+            right: 5%;
+            width:50px;
+            height:50px;
+            cursor:pointer;
+        }
+        .burgur{
+            display: none;
+            top: 20px;
+            left: 5px;
+            position: relative;
+            width: 35px;
+            height: 3px;
+            background: #ffffff;
+        }
+        .burgur .top-line{
+            width: 35px;
+            height: 3px;
+            background-color: #ffffff;
+            bottom: -10px;
+            content: '';
+            position: absolute;
+            -webkit-transition:  -webkit-transform .3s;
+            transition: transform .3s;
+        }
+        .burgur .bot-line {
+            width: 35px;
+            height: 3px;
+            background-color: #ffffff;
+            top: -10px;
+            content: '';
+            position: absolute;
+            -webkit-transition:  -webkit-transform .3s;
+            transition: transform .3s;
+        }
+
+        .burgur.on {
+            width: 0;
+        }
+        .burgur.on .bot-line {
+            -webkit-transform: translateY(5px) rotate(125deg);
+            transform: translateY(10px) rotate(135deg);
+        }
+        .burgur.on .top-line{
+            -webkit-transform: translateY(-10px) rotate(-135deg);
+            transform: translateY(-10px) rotate(-135deg);
+        }
+        .slide ul li{
+            display:inline-block;
+            width:100%;
+            padding:10px;
+            border-bottom:1px solid #ffffff;
+        }
+      .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+      }
+      @media (max-width:1400px) {
+        .slide-open{
+            display: block;
+        }
+        .burgur{display: block;}
+        #logo{ position:absolute;
+            width: 220px;
+            height: 50px;
+        }
+        #menuList{display:none}
+        #menuLogin{display: none;}
+        #menuButton{
+            display: block;
+            position: relative;
+            left: 95%;
+        }
+        
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .slide{
+        width:100%;
+        position:absolute;
+        left:-100%; 
+        top:10%;
+        right:0;
+        bottom:0;
+
+        
+        -webkit-transition: left .3s;
+        -moz-transition: left .3s;
+        -ms-transition: left .3s;
+        -o-transition: left .3s;
+        transition: left .3s;
+        background-color:#ffffff;
+        }
+        .slide.on{
+        left:0;
+        }
+      ul>li:hover{
+        border-radius: 40px 40px 40px 40px; 
+        background-color: rgb(103, 58, 229);
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="headers.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="topMenu" class="d-flex flex-wrap align-items-center  py-0 mb-0 p-3 text-bg-dark">
+        <a href="/" id="logo" class="d-flex align-items-center col-md-4 mb-0 mb-md-0 text-white text-decoration-none">
+          <img class="d-flex align-items-center col-md-4 mb-0 mb-md-0 text-white text-decoration-none" id="logo" th:src="@{/img/logo.png}" alt="">
+        </a>
+       
+        <ul id="menuList" class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        </ul>
+        <div id="menuLogin" class="col-md-4 text-end">
+          <button type="button" class="btn btn-outline-light me-0">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+        <div class="slide-open" id="slide-open">
+            <span class="burgur" id="burgur">
+                <span class="top-line"></span>
+                <span class="bot-line"></span>
+            </span>
+        </div>
+    </div>
+
+<div class="body">
+    <div class="slide d-flex flex-column flex-shrink-0 p-3 text-bg-white" id="slide">
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="#" class="nav-link text-black" aria-current="page">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                Home
+              </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-black">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+               공지사항
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-black">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                주문내역
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-black">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                SHOP
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-black">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                마이페이지
+            </a>
+          </li>
+    </ul>
+    <br>
+  <button type="button" style="width: 200px; margin-bottom: 2%; margin-left: 3%;" th:onclick="|location.href='@{/user/user.do}'|" class="btn btn-warning">Login</button>
+  <button type="button" style="width: 200px; margin-bottom: 10%; margin-left: 3%;" class="btn btn-warning">Sign-up</button>
+    <a></a>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script >
+
+        
+<!--$(function(){
+ 
+ $("#slide-open").click(function()    {
+   if($("#burgur").hasClass('on')){
+     $("#burgur").removeClass('on');
+     $("#slide").removeClass('on');
+    
+   } else{
+     $("#burgur").addClass('on');
+    $("#slide").addClass('on'); 
+   }
+ });
+ 
+});
+-->
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko" style="width: 100%;">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        left: 1px;
+        width: 100%;
+      }
+	
+		img{
+			height: 300px;
+			width:100%;
+		}
+		.ocText{
+			position: absolute;
+			opacity: 0;
+			top:45%;
+			left:43%;
+			transition: all 0.7s;
+		}
+        #ocImg{
+        	z-index: 1;
+            opacity: 1;
+            transition: all 0.7s;
+        }
+        .overView{
+        	position:relative;
+        }
+        .overView:hover #ocImg{
+        		opacity: 0;
+        }
+        .overView:hover #ocText{
+        		opacity: 1;
+        }
+        
+    </style>
+</head>
+<div class="row no-gutters row-cols-auto g-0 ">
+    <div class="col-lg-6 col-md-12 overM overView" id="overM" th:onclick="|location.href='@{/home/home.do}'|"><img id="ocImg" src="http://placekitten.com/800/500" alt=""><div class="ocText" id="ocText">처음 오신분</div></div>
+    <div class="col-lg-6 col-md-12 overM overView" id="overM" th:onclick="|location.href='@{/home/home.do}'|"><img id="ocImg" src="http://placekitten.com/800/500" alt=""><div class="ocText" id="ocText">회원권</div></div>
+</div>
+<div class="row no-gutters row-cols-auto g-0 ">
+    <div class="col-lg-4 col-md-12 overM overView" id="overM" th:onclick="|location.href='@{/home/home.do}'|"><img id="ocImg" src="http://placekitten.com/800/500" alt=""><div class="ocText" id="ocText">지점 소개</div></div>
+    <div class="col-lg-4 col-md-12 overM overView" id="overM" th:onclick="|location.href='@{/home/home.do}'|"><img id="ocImg" src="http://placekitten.com/800/500" alt=""><div class="ocText" id="ocText">키즈강습</div></div>
+    <div class="col-lg-4 col-md-12 overM overView" id="overM" th:onclick="|location.href='@{/home/home.do}'|"><img id="ocImg" src="http://placekitten.com/800/500" alt=""><div class="ocText" id="ocText">루트 세팅 스케줄</div></div>
+</div>
+
+    <script>
+    
+/*     let viewList = document.querySelectorAll("#overView");
+ 
+    // 이미지 마우스아웃시 이벤트
+    ocImgList.forEach(function(item){
+    	
+    	item.addEventListener('mouseout',function(event){
+    		event.target.style.opacity = "1";
+    		event.target.style.transition = "all 0.5s";
+    		event.target.nextSibling.style.opacity = "0";
+    		event.target.nextSibling.style.transition = "all 0.5s";
+    	});
+    }); */
+     
+
+    </script>
+</body>
+</html>

@@ -17,21 +17,23 @@ import com.study.panda.common.dto.NoticeDto;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/home")
 public class HomeController {
 
 	@Autowired
 	private HomeDao homeDao;
     
+	  @GetMapping(value="/home.do") public String listView() throws Exception{
+		  
+		  return "/home"; }
+
     
-    @GetMapping(value="/list.do")
-    public String listView(Model model, NoticeDto noticeDto) throws Exception{
-       List<NoticeDto> AllList = homeDao.listView(noticeDto);
-       model.addAttribute("AllList",AllList);
-       model.addAttribute("greet","greeting");
-       System.out.println("@@@@@@@ 최종값은? @@@@"+AllList);
-        return "/home";
-    }
+	/*
+	 * @GetMapping(value="/list.do") public String listView(Model model, NoticeDto
+	 * noticeDto) throws Exception{ List<NoticeDto> AllList =
+	 * homeDao.listView(noticeDto); model.addAttribute("AllList",AllList);
+	 * model.addAttribute("greet","greeting");
+	 * System.out.println("@@@@@@@ 최종값은? @@@@"+AllList); return "/home"; }
+	 */
     
 	/*
 	 * @GetMapping(value="/insert") public String insert() { return "notice/insert";

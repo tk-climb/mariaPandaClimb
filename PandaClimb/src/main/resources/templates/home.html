@@ -6,34 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <div th:replace="/common/header.html"></div>
 </head>
+
 <body>
-    <h1>제발!!!!!!!!!!!!</h1>
-    
-        <div>
-        <H1>DB 연동 확인</H1>
- 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>userCode</th>
-                    <th>userName</th>
-                    <h1 th:text="${greet}">Tymeleaf Test Page</h1>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="row : ${AllList}">
-                    <td th:text="${row.noticeNo}"></td>
-                    <td th:text="${row.userNo}"></td>
-                    <td th:text="${row.noticeTitle}"></td>
-                    <td th:text="${row.noticeContent}"></td>
-                    <td th:text="${row.noticeDate}"></td>
-                    <td th:text="${row.noticeHead}"></td>
-                </tr>
-            </tbody>
- 
-        </table>
- 
-    </div>
+	<div style="padding-top:75px;"></div>
+	<div>
+		<h1 style="font-size:80px; font-weight:900; padding-top:100px; text-align:center;">Panda Climb 에 오신 것을 환영합니다!</h1>
+		<br><br>
+		<p style=" font-size: 30px; font-weight:600; text-align:center;">전국 최소규모의 클라이밍(볼더링)짐<br>
+			국내 최초의 클라이밍 개발자들이 여러분께 클라이밍을 소개하고 있습니다.<br>
+			<br>
+			클라이밍이 처음이라면,<br>
+			판다 클라임에서 지금 바로 시작해보세요!
+		</p>
+	</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+	<div th:replace="/common/homeIntro.html"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+	<div th:replace="/common/instructor.html"></div>
+	<br>
+    <br>
+	
 </body>
 </html>
