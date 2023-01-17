@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div th:replace="/common/header.html"></div>
+</head>
+
+<body>
+<div style="padding-top:75px;"></div>
+	<div>
+		<form action = "join.do" method = "post" >
+			
+	<div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="p-4  rounded">
+				<h1 class="text-center">회원 가입</h1>
+			</div>
+		</div>
+	</div>
+   
+ <div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+				<input type="text" name="userId" class="form-control rounded" placeholder="아이디" required>
+                	<label>
+						아이디
+						<i class="fa-solid fa-asterisk text-danger"></i>
+					</label>
+				<div class="valid-feedback">올바른 아이디 형식입니다.</div>
+				<div class="invalid-feedback">영문 소문자로 시작하고 숫자가 포함된 8~20자로 작성하세요.</div>
+				<div class="NNNNN">이미 사용 중인 아이디입니다.</div>
+			</div>
+		</div>
+	 </div>
+            
+		
+	<div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+				<input type="password" name="userPw" class="form-control rounded" placeholder="비밀번호" required>
+					<label>
+					비밀번호
+ 					<i class="fa-solid fa-asterisk text-danger"></i>
+					</label>
+					<div class="valid-feedback">올바른 비밀번호 형식입니다.</div>
+					<div class="invalid-feedback">비밀번호는 특수문자, 숫자, 영문 대소문자가 반드시 1개 이상 포함된 8~16자로 작성하세요.</div>
+				</div>
+			</div>
+		</div>
+		
+
+	 <div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+				<input type="password" id="userPw-re" class="form-control rounded" placeholder="비밀번호 확인" required>
+					<label>
+ 					비밀번호 확인
+					<i class="fa-solid fa-asterisk text-danger"></i>
+					</label>
+					<div class="valid-feedback">비밀번호가 일치합니다.</div>
+					<div class="invalid-feedback">비밀번호가 일치하지 않습니다.</div>
+			</div>
+		</div>
+	</div>
+    
+	<div class="mt-4">
+		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="form-floating">
+    			<input type="text" name="userNick" class="form-control rounded" placeholder="닉네임" required >
+              		<label>
+                    닉네임
+                    <i class="fa-solid fa-asterisk text-danger"></i>
+                    </label>
+                    <div class="valid-feedback">올바른 닉네임 형식입니다.</div>
+                    <div class="invalid-feedback">닉네임은 한글 3~10글자로 작성하세요.</div>
+			</div>
+		</div>
+ 	</div>
+		
+		<input type="hidden" name="certificationId" value="${certificationId}">
+			
+		<div class="mt-4">
+			<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			
+				<div class="d-flex justify-content-center align-items-center flex-wrap mb-3">
+				
+					<div class=" d-flex justify-content-center align-items-center flex-fill mb-3 form-group">
+						
+						<div class="input-group form-floating">
+						
+							<input type="text" name="userEmail" class=" form-control rounded"  placeholder="이메일"  required>
+							
+							<label>
+							이메일 
+							<i class="fa-solid fa-asterisk text-danger"></i>
+							</label>
+							
+							<button class="send-btn btn rounded " style="background-color : #E6E6E6; color:#3E4684;" disabled type="button" >인증번호 발송</button>
+							<div class="valid-feedback">올바른 이메일 형식입니다.</div>
+							<div class="invalid-feedback">이메일 형식을 확인해주세요.</div>		
+						</div>
+						
+					</div>  
+						
+				</div>
+		
+	<div class="mt-4">
+		<div class="col-8 offset-2 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+			<div class="mb-5">
+			<button class="btn btn-lg rounded w-100 join-btn" style="background-color : #E6E6E6; color:#3E4684;">가입하기</button>
+			 </div>
+		</div> 
+	</div>
+		</form>
+	</div>
+	
+</body>
+
+</html>
