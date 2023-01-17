@@ -18,11 +18,6 @@ public class UserDaoImpl implements UserDao{
 	public void join(UserDto userDto) {
 			sqlSession.insert("com.study.panda.user.dao.UserDaoImpl.join", userDto); 
 		}
-
-	@Override
-	public UserDto selectOne(String userId) {
-		return  sqlSession.selectOne("com.study.panda.user.dao.UserDaoImpl.get", userId);
-	}
 	
 	@Override
 	public int login(Map map) {
@@ -34,5 +29,28 @@ public class UserDaoImpl implements UserDao{
 	public boolean updateLoginTime(String userId) {
 		return sqlSession.update("com.study.panda.user.dao.UserDaoImpl.loginTime", userId) > 0;
 	}
+
+
+	@Override
+	public UserDto selectOne(String userId) {
+		return  sqlSession.selectOne("com.study.panda.user.dao.UserDaoImpl.get", userId);
+	}
+	
+	@Override
+	public boolean update(UserDto userDto) {
+		return sqlSession.update("com.study.panda.user.dao.UserDaoImpl.edit", userDto) > 0;
+	}
+	
+	@Override
+	public boolean changePw(UserDto userDto) {
+		return sqlSession.update("com.study.panda.user.dao.UserDaoImpl.changePw", userDto) > 0;
+	}
+
+	@Override
+	public boolean delete(String userId) {
+		return sqlSession.delete("com.study.panda.user.dao.UserDaoImpl.delete", userId) >0;
+	}
+
+	
 
 }
