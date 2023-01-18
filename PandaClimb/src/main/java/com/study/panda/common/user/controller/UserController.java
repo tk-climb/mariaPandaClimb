@@ -1,6 +1,7 @@
 package com.study.panda.common.user.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -167,4 +168,30 @@ public class UserController {
 		public String goodbyeResult() {
 			return "/user/goodbyeResult";
 		}
+		
+		// 아이디 찾기
+		@GetMapping("/checkId.do")
+		public String checkId() {
+			return"/user/checkId";
+		}
+		
+		@PostMapping("/checkId.do")
+		public String checkId(@RequestParam String userEmail, Model model, HttpSession session) {
+			List<Object> checkId = userDao.checkId(userEmail);
+			
+			if(checkId.isEmpty()) {
+				return "redirect:checkId.do?error";
+			}
+			else {
+				model.addAttribute("checkId", checkId);	
+				//System.out.println(checkId);
+			}
+			return "/user/checkIdResult";
+		}
+		
+		// 아이디 확인 페이지
+			@GetMapping("/checkId_result.do")
+			public String checkIdResult() {
+				return "/user/checkIdResult";
+			}
 }
