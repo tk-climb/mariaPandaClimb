@@ -54,10 +54,10 @@ public class AdminController {
 	            
 	            if(!multi.isEmpty())
 	            {
-	                File file = new File(uploadpath, multi.getOriginalFilename());
+	                File file = new File(uploadpath, saveFileName);
 	                multi.transferTo(file);
 	                
-	                model.addAttribute("filename", multi.getOriginalFilename());
+	                model.addAttribute("filename", saveFileName);
 	                model.addAttribute("uploadPath", file.getAbsolutePath());
 	                
 	                return "false";
