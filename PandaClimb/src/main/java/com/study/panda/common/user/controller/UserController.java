@@ -184,6 +184,7 @@ public class UserController {
 			}
 			else {
 				model.addAttribute("checkId", checkId);	
+				//System.out.println(checkId);
 			}
 			return "/user/checkIdResult";
 		}

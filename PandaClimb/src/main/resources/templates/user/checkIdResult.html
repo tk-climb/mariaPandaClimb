@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div th:replace="/common/header.html"></div>
+</head>
+
+<body>
+<div style="padding-top:75px;"></div>
+	<div class="mt-4">
+	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+		<div class="p-4 rounded text-center">
+			<h1 class="text-center">아이디 찾기</h1>
+		</div>
+	</div>
+</div>
+
+	<div class="col-md-8 offset-md-2 my-4 mb-4">
+		<div class="text-center id1">
+			회원님의 아이디는  &nbsp;&nbsp; 
+			<span th:text="${checkId}"></span>
+			
+			 &nbsp;&nbsp; 입니다.
+		</div>
+	</div>		
+
+<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5">
+	<div class="row text-center mb-2">
+		<a href="login" class="btn w-100" style="background-color : #E6E6E6; color:#3E4684;" role="button">로그인 하기</a>
+	</div>
+	<div class="row text-center mb-4 mt-1">
+		<a href="checkPw" class="btn w-100 " style="background-color : #E6E6E6; color:#3E4684;" role="button">비밀번호 찾기</a>
+	</div>
+</div>
+	
+</body>
+
+</html>
