@@ -20,4 +20,6 @@ public interface UserDao {
 	boolean changePw(UserDto userDto); // 마이페이지 비밀번호 변경
 	
 	boolean delete(String userId); // 회원 탈퇴
+	
+	List<Object> checkId(String userEmail); // 아이디 찾기
 }

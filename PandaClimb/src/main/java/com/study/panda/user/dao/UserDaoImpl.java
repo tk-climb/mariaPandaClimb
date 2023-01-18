@@ -1,5 +1,6 @@
 package com.study.panda.user.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -49,6 +50,11 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public boolean delete(String userId) {
 		return sqlSession.delete("com.study.panda.user.dao.UserDaoImpl.delete", userId) >0;
+	}
+
+	@Override
+	public List<Object> checkId(String userEmail) {
+		return sqlSession.selectList("com.study.panda.user.dao.UserDaoImpl.checkId", userEmail);
 	}
 
 	
