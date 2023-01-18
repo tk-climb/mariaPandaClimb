@@ -209,12 +209,12 @@
 		}
 		
 		function fn_submit(){
-        
+        		alert("dd");
 		        var data = new FormData();
-		        form.append( "file1", $("#file1")[0].files[0] );
+		        data.append( "file1", $("#file1")[0].files[0] );
 		        
 		         jQuery.ajax({
-		             url : "/user/admin.do"
+		             url : "proUpload.do"
 		           , type : "POST"
 		           , processData : false
 		           , contentType : false
