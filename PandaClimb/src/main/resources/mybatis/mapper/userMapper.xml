@@ -10,15 +10,21 @@
  		insert into panda_user(user_no, user_id, user_pw, user_nick, user_email)
  		values(NEXTVAL(user_seq), #{userId}, #{userPw}, #{userNick}, #{userEmail})
 	</insert>
- 
- 	 <!-- 회원 단일 조회(mypage) -->
-	 <select id="get" parameterType="String" resultType="UserDto">
-		select * from panda_user where user_id = #{userId}
-	</select>
 	
 	 <!-- 회원 로그인 -->
 	 <select id="login" parameterType="hashmap" resultType="int">
 		select count(*) from panda_user where user_id = #{userId} and user_pw = #{userPw}
+	</select>
+
+	
+	<!-- 회원 로그인 시간 갱신 -->
+	<update id ="loginTime" parameterType ="String">
+		update panda_user set USER_LOGIN_DATE = now() where user_id=#{userId}
+	</update>
+	 
+ 	 <!-- 회원 단일 조회(mypage) -->
+	 <select id="get" parameterType="String" resultType="UserDto">
+		select * from panda_user where user_id = #{userId}
 	</select>
 	
 	<!-- 회원 정보 수정 -->
@@ -26,8 +32,18 @@
 		update panda_user set user_nick = #{userNick}, user_email = #{userEmail} where user_id = #{userId}
 	</update>
 	
-	<!-- 회원 로그인 시간 갱신 -->
-	<update id ="loginTime" parameterType ="String">
-		update panda_user set USER_LOGIN_DATE = now() where user_id=#{userId}
+	<!-- 마이페이지 비밀 번호 변경 -->
+	<update id ="changePw" parameterType ="UserDto">
+		update panda_user set user_pw=#{userPw} where user_id=#{userId}
 	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="delete" parameterType="String">
+		delete from panda_user where user_id=#{userId}
+	</delete>
+	
+	 <!-- 아이디 찾기 -->
+	 <select id="checkId" parameterType="String" resultType="String">
+	 	select user_id from panda_user where user_email=#{userEmail}
+	</select>
 </mapper>

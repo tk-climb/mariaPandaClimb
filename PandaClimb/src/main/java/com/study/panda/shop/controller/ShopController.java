@@ -11,7 +11,7 @@ import com.study.panda.shop.dao.ShopDao;
 @RequestMapping(value = "/shop")
 public class ShopController {
 
-		@Autowired ShopDao shopdao;
+		//@Autowired ShopDao shopdao;
 		
 		@GetMapping(value="/shop.do") public String listView() throws Exception{
   
