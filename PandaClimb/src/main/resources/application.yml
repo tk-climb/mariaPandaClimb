@@ -1,7 +1,14 @@
 --- # change port
 server:
   port: 8085
-  
+
+--- # server fileSize
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB  
+
 --- # Thymeleaf
 spring:
   thymeleaf:

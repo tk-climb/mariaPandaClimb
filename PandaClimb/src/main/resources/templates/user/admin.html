@@ -11,224 +11,224 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <style>
-	.shop-background-wrap {
-		position: relative;
-		margin-bottom: 100px;
-	}
-	.shop-background {
-		filter: grayscale(100%);
-	  	background-size: auto;
-	  	background-position: center;
-	  	height: 500px;
-	  	text-align: center;
-	}
-	.shop-background-text{
-		top: 50%;
-		left: 50%;
-		position: absolute;
-		font-size: 50px;
-		font-weight: 900;
-		color: yellow;
-		text-align: center;
-		transform: translate( -50%, -50% );
-	}
-	.nav-wrap{
-		width: 80%;
-		margin: auto;
-	}
-	.tab-content{
-		display: none;
-		margin-top: 70px;
-	}
-	.active{
-		display: block;
-	}
-	.tab-contents-wrap{
-		width: 80%;
-		margin:auto;
-	}
-	@media (max-width:1100px) {
-		.product{
-			margin:auto;
-		}
- 	}
+   .shop-background-wrap {
+      position: relative;
+      margin-bottom: 100px;
+   }
+   .shop-background {
+      filter: grayscale(100%);
+        background-size: auto;
+        background-position: center;
+        height: 500px;
+        text-align: center;
+   }
+   .shop-background-text{
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      font-size: 50px;
+      font-weight: 900;
+      color: yellow;
+      text-align: center;
+      transform: translate( -50%, -50% );
+   }
+   .nav-wrap{
+      width: 80%;
+      margin: auto;
+   }
+   .tab-content{
+      display: none;
+      margin-top: 70px;
+   }
+   .active{
+      display: block;
+   }
+   .tab-contents-wrap{
+      width: 80%;
+      margin:auto;
+   }
+   @media (max-width:1100px) {
+      .product{
+         margin:auto;
+      }
+    }
 </style>
 <body>
-	<div style="padding-top:75px;"></div>
-	
-	<div class="shop-background-wrap">
-		<div class="shop-background" th:style="'background-image:url('+ @{/img/shop.png} +');'">
-			
-		</div>
-		<div class="shop-background-text">PANDA SHOP<br>
-			<p style="font-size: 15px;">design by panda</p>
-		</div>
-	</div>
-	<div class="nav-wrap">
-		<ul class="nav nav-tabs">
-		  <li class="nav-item tab-item" tab-alias="Shirt">
-		    <a class="nav-link tab-link active"  href="#">Shirt</a>
-		  </li>
-		  <li class="nav-item  tab-item" tab-alias="Pants">
-		    <a class="nav-link tab-link"  href="#">Pants</a>
-		  </li>
-		  <li class="nav-item tab-item" tab-alias="Pants">
-		    <a class="nav-link tab-link" href="#">Pants</a>
-		  </li>
-		  <li class="nav-item tab-item" tab-alias="Chalk">
-		    <a class="nav-link tab-link" href="#">Chalk</a>
-		  </li>
-		</ul>
-	</div>
-	
-	<div class="tab-contents-wrap">
-		<div class="tab-content active" id="Shirt">
-			<div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
-				<div>
-				       <div class="img_wrap">
-				           <img id="img" />
-				       </div>
-				</div>
-			</div>
-			<div>
-			    <label for="file1">파일</label> 
-			    <input type="file" id="file1" name="file1"> 
-			    <button id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
-			</div>
-		</div>
-		<div class="tab-content" id="Shoes">
-			<div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-			</div>
-		</div>
-		<div class="tab-content" id="Pants">
-			<div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-			</div>
-		</div>
-		<div class="tab-content" id="Chalk">
-			<div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-			</div>
-		</div>
-	</div>
+   <div style="padding-top:75px;"></div>
+   
+   <div class="shop-background-wrap">
+      <div class="shop-background" th:style="'background-image:url('+ @{/img/shop.png} +');'">
+         
+      </div>
+      <div class="shop-background-text">PANDA SHOP<br>
+         <p style="font-size: 15px;">design by panda</p>
+      </div>
+   </div>
+   <div class="nav-wrap">
+      <ul class="nav nav-tabs">
+        <li class="nav-item tab-item" tab-alias="Shirt">
+          <a class="nav-link tab-link active"  href="#">Shirt</a>
+        </li>
+        <li class="nav-item  tab-item" tab-alias="Pants">
+          <a class="nav-link tab-link"  href="#">Pants</a>
+        </li>
+        <li class="nav-item tab-item" tab-alias="Pants">
+          <a class="nav-link tab-link" href="#">Pants</a>
+        </li>
+        <li class="nav-item tab-item" tab-alias="Chalk">
+          <a class="nav-link tab-link" href="#">Chalk</a>
+        </li>
+      </ul>
+   </div>
+   
+   <div class="tab-contents-wrap">
+      <div class="tab-content active" id="Shirt">
+         <div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
+            <div>
+                   <div class="img_wrap">
+                       <img id="img" />
+                   </div>
+            </div>
+         </div>
+         <div>
+             <label for="file1">파일</label> 
+             <input type="file" id="file1" name="file1"> 
+             <button id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
+         </div>
+      </div>
+      <div class="tab-content" id="Shoes">
+         <div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>   
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>   
+         </div>
+      </div>
+      <div class="tab-content" id="Pants">
+         <div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>   
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>   
+         </div>
+      </div>
+      <div class="tab-content" id="Chalk">
+         <div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>   
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
+               <div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
+               <div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+            </div>   
+         </div>
+      </div>
+   </div>
 
     <script>
 
         
-		$(function(){
+      $(function(){
  
-			$(".tab-item").click(function(){
-				
-				var tab_id = $(this).attr('tab-alias'); // 탭의 별칭을 짓고 그 속성을 attr(갖고있으면) tab_id에 초기화.
-				
-			    $('.tab-link').removeClass('active'); // active 클래스를 지움으로써 active 스타일 없어짐.
-				$('.tab-content').removeClass('active'); // 컨텐츠는 기본값이 none이라 active 지움으로서 사라짐.
-				$('.tab-item').removeClass('active'); // 이전에 있던 nav-item 클래스의 active클래스를 전부 없앰.
-				
-				$(this).find("a").addClass('active'); // 클릭한 값의 자식 a태그를 찾아서 거기에 active클래스를 넣음.  
-				$(this).addClass('active'); // 현재 클릭한 값을 active를 넣어줌.
-				$('#'+tab_id).addClass('active'); // 컨텐츠도 마찬가지로 넣어줌.
+         $(".tab-item").click(function(){
+            
+            var tab_id = $(this).attr('tab-alias'); // 탭의 별칭을 짓고 그 속성을 attr(갖고있으면) tab_id에 초기화.
+            
+             $('.tab-link').removeClass('active'); // active 클래스를 지움으로써 active 스타일 없어짐.
+            $('.tab-content').removeClass('active'); // 컨텐츠는 기본값이 none이라 active 지움으로서 사라짐.
+            $('.tab-item').removeClass('active'); // 이전에 있던 nav-item 클래스의 active클래스를 전부 없앰.
+            
+            $(this).find("a").addClass('active'); // 클릭한 값의 자식 a태그를 찾아서 거기에 active클래스를 넣음.  
+            $(this).addClass('active'); // 현재 클릭한 값을 active를 넣어줌.
+            $('#'+tab_id).addClass('active'); // 컨텐츠도 마찬가지로 넣어줌.
 
-			 });
-		 
-		});
-		
-		// 이미지 미리보기 시작
-		var sel_file;
-		 
-		$(document).ready(function() {
-		    $("#file1").on("change", handleImgFileSelect);
-		});
-		 
-		function handleImgFileSelect(e) {
-		    var files = e.target.files;
-		    var filesArr = Array.prototype.slice.call(files);
-		 
-		    var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/; // 정규화
-		 
-		    filesArr.forEach(function(f) {
-		        if (!f.type.match(reg)) {
-		            alert("확장자는 이미지 확장자만 가능합니다.");
-		            return;
-		        }
-		 
-		        sel_file = f;
-		 		// 이미지 미리보기하기위해 파일리더
-		        var reader = new FileReader();
-		        reader.onload = function(e) {
-		           $("#img").attr("src", e.target.result); // 이미지 올릴 대상 설정 
-		        }
-		        reader.readAsDataURL(f); // 이미지 미리보기
-		    });
-		}
-		
-		function fn_submit(){
-        
-		        var data = new FormData();
-		        form.append( "file1", $("#file1")[0].files[0] );
-		        
-		         jQuery.ajax({
-		             url : "/user/admin.do"
-		           , type : "POST"
-		           , processData : false
-		           , contentType : false
-		           , data : data
-		           , success:function(response) {
-		               alert("성공하였습니다.");
-		               console.log(response);
-		           }
-		           ,error: function (jqXHR) 
-		           { 
-		               alert(jqXHR.responseText); 
-		           }
-		       });
-		}
+          });
+       
+      });
+      
+      // 이미지 미리보기 시작
+      var sel_file;
+       
+      $(document).ready(function() {
+          $("#file1").on("change", handleImgFileSelect);
+      });
+       
+      function handleImgFileSelect(e) {
+          var files = e.target.files;
+          var filesArr = Array.prototype.slice.call(files);
+       
+          var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/; // 정규화
+       
+          filesArr.forEach(function(f) {
+              if (!f.type.match(reg)) {
+                  alert("확장자는 이미지 확장자만 가능합니다.");
+                  return;
+              }
+       
+              sel_file = f;
+             // 이미지 미리보기하기위해 파일리더
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                 $("#img").attr("src", e.target.result); // 이미지 올릴 대상 설정 
+              }
+              reader.readAsDataURL(f); // 이미지 미리보기
+          });
+      }
+      
+      function fn_submit(){
+              alert("dd");
+              var data = new FormData();
+              data.append( "file1", $("#file1")[0].files[0] );
+              
+               jQuery.ajax({
+                   url : "proUpload.do"
+                 , type : "POST"
+                 , processData : false
+                 , contentType : false
+                 , data : data
+                 , success:function(response) {
+                     alert("성공하였습니다.");
+                     console.log(response);
+                 }
+                 ,error: function (jqXHR) 
+                 { 
+                     alert(jqXHR.responseText); 
+                 }
+             });
+      }
 
     </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

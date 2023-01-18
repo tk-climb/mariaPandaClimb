@@ -21,11 +21,11 @@
             width: 100%;
         }
         #logo{
-    		width:200px;
-    		height:50px;
-    		margin-left:30px;
-    		margin-right:25%;
-    	}
+          width:200px;
+          height:50px;
+          margin-left:30px;
+          margin-right:25%;
+       }
 
         .content{
             height:100%;
@@ -114,15 +114,15 @@
             left: 95%;
         }
         #hpBody{
-			display: block;
-		}
+         display: block;
+      }
         
       }
       @media (min-width:1400px) {
-		#hpBody{
-			display: none;
-		}
-	  }
+      #hpBody{
+         display: none;
+      }
+     }
 
       .b-example-divider {
         height: 3rem;
@@ -167,7 +167,7 @@
         top:5%;
         right:0;
         bottom:0;
-		z-index: 1; 
+      z-index: 1; 
         -webkit-transition: left .3s;
         -moz-transition: left .3s;
         -ms-transition: left .3s;
@@ -183,8 +183,8 @@
         background-color: rgb(103, 58, 229);
       }
       .slide-menu{
-		  padding-top: 50px;
-	  }
+        padding-top: 50px;
+     }
     </style>
 
     
@@ -216,38 +216,38 @@
             </span>
         </div>
     </div>
-	
-	<div class = "container-fluid mt-5">
-	<div class = "row">
-		<h2>Session에 대한 정보</h2>
-	</div>
-	
-	<div>
-		로그인 아이디 : <p th:text="${session.loginId}"></p>
-	</div>
-	<div>
-		로그인 등급 : <p th:text="${session.loginGrade}"></p>
-	</div>
-	<div>
-		로그인 여부 : <p th:text="${session.loginId != null}"></p>
-	</div>
-	
-		<div th:if="${session.loginId != null}">
- 			 <div class = "col d-flex justify-content-center">
-					<a th:href="@{/user/logout.do}">로그아웃</a>
-				</div>
-				<div class = "col d-flex justify-content-center">
-					<a th:href="@{/user/mypage.do}">마이페이지</a>
-				</div>
-		</div>
-		<div th:unless="${session.loginId != null}">
-		  <div class = "col d-flex justify-content-center">
-					<a th:href="@{/user/login.do}">로그인 하기</a>
-				</div>
-				<div class = "col d-flex justify-content-center">
-					<a th:href="@{/user/join.do}">회원가입</a>
-				</div>
-		</div>
+   
+   <div class = "container-fluid mt-5">
+   <div class = "row">
+      <h2>Session에 대한 정보</h2>
+   </div>
+   
+   <div>
+      로그인 아이디 : <p th:text="${session.loginId}"></p>
+   </div>
+   <div>
+      로그인 등급 : <p th:text="${session.loginGrade}"></p>
+   </div>
+   <div>
+      로그인 여부 : <p th:text="${session.loginId != null}"></p>
+   </div>
+   
+      <div th:if="${session.loginId != null}">
+           <div class = "col d-flex justify-content-center">
+               <a th:href="@{/user/logout.do}">로그아웃</a>
+            </div>
+            <div class = "col d-flex justify-content-center">
+               <a th:href="@{/user/mypage.do}">마이페이지</a>
+            </div>
+      </div>
+      <div th:unless="${session.loginId != null}">
+        <div class = "col d-flex justify-content-center">
+               <a th:href="@{/user/login.do}">로그인 하기</a>
+            </div>
+            <div class = "col d-flex justify-content-center">
+               <a th:href="@{/user/join.do}">회원가입</a>
+            </div>
+      </div>
 </div>  
 
 <div class="body" id="hpBody">
