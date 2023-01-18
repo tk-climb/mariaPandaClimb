@@ -148,7 +148,7 @@ public class UserController {
 			String userId = (String)session.getAttribute(SessionConstant.ID);
 			UserDto userDto = userDao.selectOne(userId);
 			boolean passwordMatch = userPw.equals(userDto.getUserPw()); // 원본 비밀번호 랑 찾은 비밀번호랑 비교
-			System.out.println(passwordMatch);
+			//System.out.println(passwordMatch);
 			if(passwordMatch) {
 				//회원 탈퇴
 				userDao.delete(userId);
