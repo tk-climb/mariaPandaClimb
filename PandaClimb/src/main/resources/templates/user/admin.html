@@ -84,22 +84,16 @@
 	<div class="tab-contents-wrap">
 		<div class="tab-content active" id="Shirt">
 			<div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+				<div>
+				       <div class="img_wrap">
+				           <img id="img" />
+				       </div>
 				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
+			</div>
+			<div>
+			    <label for="file1">파일</label> 
+			    <input type="file" id="file1" name="file1"> 
+			    <button id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
 			</div>
 		</div>
 		<div class="tab-content" id="Shoes">
@@ -184,6 +178,58 @@
 			 });
 		 
 		});
+		
+		// 이미지 미리보기 시작
+		var sel_file;
+		 
+		$(document).ready(function() {
+		    $("#file1").on("change", handleImgFileSelect);
+		});
+		 
+		function handleImgFileSelect(e) {
+		    var files = e.target.files;
+		    var filesArr = Array.prototype.slice.call(files);
+		 
+		    var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/; // 정규화
+		 
+		    filesArr.forEach(function(f) {
+		        if (!f.type.match(reg)) {
+		            alert("확장자는 이미지 확장자만 가능합니다.");
+		            return;
+		        }
+		 
+		        sel_file = f;
+		 		// 이미지 미리보기하기위해 파일리더
+		        var reader = new FileReader();
+		        reader.onload = function(e) {
+		           $("#img").attr("src", e.target.result); // 이미지 올릴 대상 설정 
+		        }
+		        reader.readAsDataURL(f); // 이미지 미리보기
+		    });
+		}
+		
+		function fn_submit(){
+        
+		        var data = new FormData();
+		        form.append( "file1", $("#file1")[0].files[0] );
+		        
+		         jQuery.ajax({
+		             url : "/user/admin.do"
+		           , type : "POST"
+		           , processData : false
+		           , contentType : false
+		           , data : data
+		           , success:function(response) {
+		               alert("성공하였습니다.");
+		               console.log(response);
+		           }
+		           ,error: function (jqXHR) 
+		           { 
+		               alert(jqXHR.responseText); 
+		           }
+		       });
+		}
+
     </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
