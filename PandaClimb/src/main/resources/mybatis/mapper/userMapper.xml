@@ -8,7 +8,7 @@
    <!-- 회원 가입 -->
 	<insert id="join" parameterType="UserDto">
  		insert into panda_user(user_no, user_id, user_pw, user_nick, user_email)
- 		values(NEXTVAL(user_seq), #{userId}, #{userPw}, #{userNick}, #{userEmail})
+ 		values(null, #{userId}, #{userPw}, #{userNick}, #{userEmail})
 	</insert>
 	
 	 <!-- 회원 로그인 -->
