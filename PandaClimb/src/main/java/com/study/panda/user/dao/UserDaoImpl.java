@@ -57,6 +57,16 @@ public class UserDaoImpl implements UserDao{
 		return sqlSession.selectList("com.study.panda.user.dao.UserDaoImpl.checkId", userEmail);
 	}
 
+	@Override
+	public int checkPw(Map map) {
+		return sqlSession.selectOne("com.study.panda.user.dao.UserDaoImpl.checkPw", map);
+	}
+
+	@Override
+	public boolean checkPwSuccess(UserDto userDto) {
+		return sqlSession.update("com.study.panda.user.dao.UserDaoImpl.checkPwSuccess", userDto) > 0;
+	}
+
 	
 
 }
