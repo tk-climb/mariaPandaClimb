@@ -16,7 +16,6 @@
 		select count(*) from panda_user where user_id = #{userId} and user_pw = #{userPw}
 	</select>
 
-	
 	<!-- 회원 로그인 시간 갱신 -->
 	<update id ="loginTime" parameterType ="String">
 		update panda_user set USER_LOGIN_DATE = now() where user_id=#{userId}
