@@ -19,11 +19,9 @@
 	  	select * from certification where certification_id = #{certificationId} and certification_key = #{certificationKey}
 	  </select>
 	  
-	   <!--  단일 조회() -->
+	   <!--  단일 조회 -->
 	 <select id="get" parameterType="String" resultType="CertificationDto">
 		select * from certification where certification_id = #{certificationId}
 	</select>
-	
-	  
 	  
 </mapper>
