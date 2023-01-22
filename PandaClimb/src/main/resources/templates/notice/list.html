@@ -14,7 +14,7 @@
 <body>
 <div style="padding-top:75px;"></div>
 <div class="container-fluid mt-5 mb-5">
-	<div>
+
 		<div class="col-8 offset-2">
 			<div>
 			
@@ -26,9 +26,6 @@
 					</div>
 				</div>
 
-				<div class="row justify-content-end">
-					<div class="col-2">
-
 				<div class="mt-4">
 					<div class="col-md-10 offset-md-1">
 						<table class="table table-hover">
@@ -36,21 +33,23 @@
 								<tr>
 									<th>번호</th>
 									<th width="45%">제목</th>
-									<th>작성자</th>
+									<th>내용</th>
+									<th>작성자 번호</th>
 									<th>작성일</th>
 								</tr>
 							</thead>
+							
 							<tbody class="text-center" >
-								<c:forEach var="noticeList" items="${noticeList}">
-									<tr>
-										<span th:text="${noticeList.noticeNo}"></span>
-										<td>
-												${noticeList.noticeTitle}
-										</td>
-										<td>${noticeList.userNo}</td>		
-									</tr>
-								</c:forEach>
+							 <tr th:each="noticeList : ${noticeList}">
+								 <td th:text="${noticeList.noticeNo}"></td>    
+						         <td th:text="${noticeList.noticeTitle}"></td>    
+						      	<td th:text="${noticeList.noticeContent}"></td>    
+						        <td th:text="${noticeList.userNo}"></td>    
+						        <td th:text="${noticeList.noticeDate}"></td>    
+						     					        
+							</tr>
 							</tbody>
+							
 						</table>
 					</div>
 				</div>

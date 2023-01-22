@@ -25,8 +25,20 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 
 	@Override
-	public List<NoticeDto> selectList() {
-		return sqlSession.selectList("com.study.panda.common.dao.NoticeDaoImpl.list");
+	public List<NoticeDto> selectList(NoticeDto noticeDto) {
+		return sqlSession.selectList("com.study.panda.common.dao.NoticeDaoImpl.list",noticeDto);
+	}
+
+	@Override
+	public boolean edit(NoticeDto noticeDto) {
+		int count = sqlSession.update("com.study.panda.common.dao.NoticeDaoImpl.edit", noticeDto);
+		return count > 0;
+	}
+
+	@Override
+	public boolean delete(int noticeNo) {
+		int count = sqlSession.delete("com.study.panda.common.dao.NoticeDaoImpl.delete", noticeNo);
+		return count > 0;
 	}
 	
 	

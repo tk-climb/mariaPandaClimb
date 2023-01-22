@@ -20,5 +20,15 @@
 	<select id="list" resultType="NoticeDto">
 		select * from panda_notice order by notice_no desc
 	</select>
+	
+	<!-- 공지 수정 -->
+	<update id = "edit" parameterType = "NoticeDto">
+		update panda_notice set notice_title = #{noticeTitle}, notice_content = #{noticeContent}, notice_head =#{noticeHead} where notice_no = #{noticeNo}
+	</update>
+	
+	<!-- 공지 삭제 -->
+	<delete id = "delete" parameterType = "int">
+		delete from panda_notice where notice_no = #{inquireNo}
+	</delete>
  
 </mapper>

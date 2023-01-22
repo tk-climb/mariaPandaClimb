@@ -10,5 +10,9 @@ public interface NoticeDao {
 	
 	public NoticeDto detail(int noticeNo); // 공지 상세보기
 	
-	List<NoticeDto> selectList(); // 공지 목록
+	List<NoticeDto> selectList(NoticeDto noticeDto); // 공지 목록
+	
+	boolean edit(NoticeDto noticeDto); // 공지 수정
+	
+	boolean delete(int noticeNo); // 공지 삭제
 }
