@@ -22,4 +22,8 @@ public interface UserDao {
 	boolean delete(String userId); // 회원 탈퇴
 	
 	List<Object> checkId(String userEmail); // 아이디 찾기
+	
+	int checkPw(Map map); // 비밀번호 찾기
+
+	boolean checkPwSuccess(UserDto userDto); // 비밀번호 변경
 }

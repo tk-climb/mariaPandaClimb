@@ -24,10 +24,10 @@ public class EmailConfiguration {
 
 		// 도구 생성 및 정보 설정
 		JavaMailSenderImpl sender = new JavaMailSenderImpl();
-		sender.setHost(emailProperties.getHost());// 이메일 전송 대행업체의 HOST
-		sender.setPort(emailProperties.getPort());// 이메일 전송 대행업체의 PORT
-		sender.setUsername(emailProperties.getUsername());// 이메일 전송 대행업체 로그인 ID
-		sender.setPassword(emailProperties.getPassword());// 이메일 전송 대행업체 로그인 PW(앱 비밀번호)
+		sender.setHost("smtp.gmail.com");// 이메일 전송 대행업체의 HOST
+		sender.setPort(587);// 이메일 전송 대행업체의 PORT
+		sender.setUsername("sjtees2@gmail.com");// 이메일 전송 대행업체 로그인 ID
+		sender.setPassword("urvqjxccxcrmixjv");// 이메일 전송 대행업체 로그인 PW(앱 비밀번호)
 
 		// 추가 정보 설정
 		Properties props = new Properties();// Map<String, String> 형태의 저장소

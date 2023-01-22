@@ -3,11 +3,32 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.study.panda.common.dao.HomeDaoImpl">
-   
-    <!--  조회 -->
-    <select id="listView" resultType="NoticeDto">
-      select * from notice
-    </select>
+<mapper namespace="com.study.panda.common.dao.NoticeDaoImpl">
+ 
+	<!-- 공지 등록 -->
+	<insert id ="insert" parameterType ="NoticeDto">
+		insert into panda_notice (notice_no, user_no, notice_title, notice_content, notice_head) 
+		values (null, #{userNo}, #{noticeTitle}, #{noticeContent}, #{noticeHead})
+	</insert>
+	
+	<!-- 공지 상세 페이지 -->
+	<select id ="detail" parameterType ="int" resultType = "NoticeDto">
+		select * from panda_notice where notice_no = #{noticeNo}
+	</select>
+	
+	<!-- 공지 목록-->
+	<select id="list" resultType="NoticeDto">
+		select * from panda_notice order by notice_no desc
+	</select>
+	
+	<!-- 공지 수정 -->
+	<update id = "edit" parameterType = "NoticeDto">
+		update panda_notice set notice_title = #{noticeTitle}, notice_content = #{noticeContent}, notice_head =#{noticeHead} where notice_no = #{noticeNo}
+	</update>
+	
+	<!-- 공지 삭제 -->
+	<delete id = "delete" parameterType = "int">
+		delete from panda_notice where notice_no = #{inquireNo}
+	</delete>
  
 </mapper>
