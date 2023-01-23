@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.study.panda.user.dao.AdminDaoImpl">
+   
+   <!-- 상품 등록 -->
+   <!-- useGeneratedKeys : insert,update시 결과값 가져옴/ keyProperty는 세트인데 어떤 값을 가져올지 지정할 수 있음
+   결과값은 DTO에 담겨서 keyProperty지정한 값을 get방식으로 꺼내쓰면됨. -->
+	<insert useGeneratedKeys="true" keyProperty="productNo" id="productInsert" parameterType="ProductDto">
+ 		insert into panda_product(category_sub, product_nm, product_price, product_at_no, product_comment, product_count)
+ 		values(concat(concat(#{categorySub},'-'),nextval(seq_category)) , #{productNm}, #{productPrice}, nextval(seq_product_at_no), #{productComment},#{productCount})
+	</insert>
+	
+	<!-- 첨부파일 등록 -->
+	<insert useGeneratedKeys="true" keyProperty="attachmentNo" id="attachInsert" parameterType="AttachmentDto">
+ 		insert into panda_attachment(attachment_name, attachment_type, attachment_size, attachment_date)
+ 		values(#{attachmentName}, #{attachmentType},#{attachmentSize}, now())
+	</insert>
+	
+	<!-- 상품_첨부 등록-->
+	<insert id="productAttachInsert" parameterType="ProductAttachmentDto">
+ 		insert into product_attachment(product_at_no,attachment_no)
+ 		values(#{productAtNo}, #{attachmentNo})
+	</insert>
+
+	<!-- 카테고리 등록-->
+	<insert id="categoryInsert" parameterType="CategoryDto">
+ 		insert into panda_category(category_major,category_sub)
+ 		values(#{categoryMajor}, #{categorySub})
+	</insert>
+	
+	<!-- 등록한 상품 조회 -->
+	<select id="productList" parameterType="ProductDto" resultType="hashmap">
+		select product_no as productNo, category_sub as categorySub, product_nm as productNm, product_price as productPrice, product_at_no as productAtNo, product_comment as productComment, product_count as productCount from panda_product where product_no = #{productNo}
+	</select>
+	
+		<!-- 등록한 상품 조회 -->
+	<select id="deleteList" parameterType="ProductDto" resultType="ProductDto">
+		select product_no, category_sub, product_nm, product_price, product_at_no, product_comment, product_count from panda_product
+	</select>
+</mapper>
