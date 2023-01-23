@@ -16,7 +16,6 @@ public class HomeDaoImpl implements HomeDao {
 	   
 	   @Override
 	   public List<NoticeDto> listView(NoticeDto noticeDto){
-	      System.out.println("타나?");
 	      return sqlSession.selectList("com.study.panda.common.dao.HomeDaoImpl.listView",noticeDto);
 	   }
 

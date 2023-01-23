@@ -103,8 +103,9 @@
         }
         .burgur{display: block;}
         #logo{ position:absolute;
-            width: 220px;
+            width: 200px;
             height: 50px;
+            margin-left: 30px;
         }
         #menuList{display:none}
         #menuLogin{display: none;}
@@ -118,9 +119,25 @@
       }
         
       }
-      @media (min-width:1400px) {
-      #hpBody{
-         display: none;
+      @media (max-width:500px) {
+        .slide-open{
+            display: block;
+        }
+        .burgur{display: block;}
+        #logo{ position:absolute;
+            width: 200px;
+            height: 50px;
+            margin-left: 0px;
+        }
+        #menuList{display:none}
+        #menuLogin{display: none;}
+        #menuButton{
+            display: block;
+            position: relative;
+            left: 95%;
+        }
+        #hpBody{
+         display: block;
       }
      }
 
@@ -216,39 +233,6 @@
             </span>
         </div>
     </div>
-   
-   <div class = "container-fluid mt-5">
-   <div class = "row">
-      <h2>Session에 대한 정보</h2>
-   </div>
-   
-   <div>
-      로그인 아이디 : <p th:text="${session.loginId}"></p>
-   </div>
-   <div>
-      로그인 등급 : <p th:text="${session.loginGrade}"></p>
-   </div>
-   <div>
-      로그인 여부 : <p th:text="${session.loginId != null}"></p>
-   </div>
-   
-      <div th:if="${session.loginId != null}">
-           <div class = "col d-flex justify-content-center">
-               <a th:href="@{/user/logout.do}">로그아웃</a>
-            </div>
-            <div class = "col d-flex justify-content-center">
-               <a th:href="@{/user/mypage.do}">마이페이지</a>
-            </div>
-      </div>
-      <div th:unless="${session.loginId != null}">
-        <div class = "col d-flex justify-content-center">
-               <a th:href="@{/user/login.do}">로그인 하기</a>
-            </div>
-            <div class = "col d-flex justify-content-center">
-               <a th:href="@{/user/join.do}">회원가입</a>
-            </div>
-      </div>
-</div>  
 
 <div class="body" id="hpBody">
     <div class="slide d-flex flex-column flex-shrink-0 p-3 text-bg-white" id="slide">

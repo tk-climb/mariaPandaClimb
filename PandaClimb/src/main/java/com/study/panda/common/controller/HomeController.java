@@ -27,7 +27,7 @@ public class HomeController {
 		  
 		  return "/home"; }
 
-    
+
 	/*
 	 * @GetMapping(value="/list.do") public String listView(Model model, NoticeDto
 	 * noticeDto) throws Exception{ List<NoticeDto> AllList =
