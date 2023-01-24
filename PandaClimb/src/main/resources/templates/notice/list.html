@@ -41,19 +41,19 @@
 							
 							<tbody class="text-center" >
 							 <tr th:each="noticeList : ${noticeList}">
-								 <td th:text="${noticeList.noticeNo}"></td>    
-						         <td th:text="${noticeList.noticeTitle}"></td>    
+								<td th:text="${noticeList.noticeNo}"></td>    
+						        <td><a th:href="@{|/notice/detail.do?noticeNo=${noticeList.noticeNo}|}" th:text="${noticeList.noticeTitle}"></a></td> 
 						      	<td th:text="${noticeList.noticeContent}"></td>    
 						        <td th:text="${noticeList.userNo}"></td>    
 						        <td th:text="${noticeList.noticeDate}"></td>    
-						     					        
+						    
 							</tr>
 							</tbody>
 							
 						</table>
 					</div>
 				</div>
-
+				<a th:href="@{/notice/insert.do}" class = "btn w-100 mybtn"  role=button style="font-size: 23px">공지사항 등록</a>
 			</div>
 		</div>
 	</div>

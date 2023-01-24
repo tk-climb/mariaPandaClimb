@@ -59,17 +59,16 @@
 	
 	
 	<div class="row mt-4 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
-		<c:if test = "${loginId == inquireDto.inquireId}">
+		
 			<div class=" col " >
-				<a href="edit?inquireNo=${inquireDto.inquireNo}"  style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100" role=button>수정</a>
+				<a th:href="@{/notice/list.do}" class = "btn w-100 mybtn"  role=button style="font-size: 23px">목록</a>
 			</div>
 			<div class=" col" >
-				<a href="delete?inquireNo=${inquireDto.inquireNo}"  style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100" role=button>삭제</a>
+				<a th:href="@{|/notice/edit.do?noticeNo=${noticeDto.noticeNo}|}" class = "btn w-100 mybtn"  role=button style="font-size: 23px">수정</a>
 			</div>
-		</c:if>
-		<div class=" col" >
-			<a href="list?inquireId=${inquireDto.inquireId}"  style="background-color : #E6E6E6; color:#3E4684;"  class="btn w-100" role=button>목록</a>
-		</div>
+			<div class=" col" >
+				<a th:href="@{|/notice/delete.do?noticeNo=${noticeDto.noticeNo}|}" class = "btn w-100 mybtn"  role=button style="font-size: 23px">삭제</a>
+			</div>
 	</div>	
 </body>
 
