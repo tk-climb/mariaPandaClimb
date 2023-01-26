@@ -26,8 +26,7 @@ public class NoticeInsertController {
 	}
 	
 	@PostMapping(value="/insert.do")
-	public String insert(HttpSession session,@ModelAttribute NoticeDto noticeDto, 
-			RedirectAttributes attr)  {
+	public String insert(HttpSession session,@ModelAttribute NoticeDto noticeDto)  {
 		noticeDao.insert(noticeDto);
 		return "redirect:list.do";
 }

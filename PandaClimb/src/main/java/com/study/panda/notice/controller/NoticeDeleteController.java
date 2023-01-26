@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.study.panda.notice.dao.NoticeDao;
 
-import jakarta.servlet.http.HttpSession;
-
 @Controller
 @RequestMapping("/notice")
 public class NoticeDeleteController {
@@ -18,7 +16,7 @@ public class NoticeDeleteController {
 	private NoticeDao noticeDao;
 	
 	@GetMapping("/delete.do")
-	public String delete(@RequestParam int noticeNo, HttpSession session) {
+	public String delete(@RequestParam int noticeNo) {
 		noticeDao.delete(noticeNo);
 		return "redirect:list.do";
 		}	

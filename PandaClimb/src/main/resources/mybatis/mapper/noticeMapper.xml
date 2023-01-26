@@ -28,7 +28,7 @@
 	
 	<!-- 공지 삭제 -->
 	<delete id = "delete" parameterType = "int">
-		delete from panda_notice where notice_no = #{inquireNo}
+		delete from panda_notice where notice_no = #{noticeNo}
 	</delete>
  
 </mapper>
