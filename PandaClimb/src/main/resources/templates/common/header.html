@@ -226,7 +226,7 @@
         <div id="menuLogin" class="col-md-4 text-end" th:if="${session.loginId != null}">
 		<span th:text="${session.loginId}"></span>님 환영합니다.
            <a th:href="@{/user/mypage.do}" class="btn btn-outline-light me-0" role=button>마이페이지</a>
-           <a th:href="@{/user/logout.do}" class="btn btn-outline-light me-0" role=button>Logout</a>
+           <a th:href="@{/user/logout.do}" class="btn btn-outline-light me-0 logout" role=button>Logout</a>
         </div>
           <div id="menuLogin" class="col-md-4 text-end" th:unless="${session.loginId != null}">
            <a th:href="@{/user/login.do}" class="btn btn-outline-light me-0" role=button>Login</a>
@@ -297,6 +297,18 @@ $(function(){
     $("#slide").addClass('on'); 
    }
  });
+ 
+ //로그아웃 버튼 클릭 시 알람
+$(".logout").click(function(e){
+    var choice = confirm("로그아웃 하시겠습니까?");
+    if(choice){
+        return true;
+        
+    }
+    else{
+        return false;
+    }
+});
  
 });
     </script>
