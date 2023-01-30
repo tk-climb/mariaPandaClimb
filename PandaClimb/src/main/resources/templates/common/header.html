@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="ko">
+	<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -210,21 +211,26 @@
   </head>
   <body>
     <div id="topMenu" class="d-flex flex-wrap align-items-center  py-0 mb-0 p-3 text-bg-dark">
-        <a href="/" id="logo" class="d-flex align-items-center col-md-4 mb-0 mb-md-0 text-white text-decoration-none">
+       <a th:href="@{/home/home.do}"  id="logo" class="d-flex align-items-center col-md-4 mb-0 mb-md-0 text-white text-decoration-none">
           <img class="d-flex align-items-center col-md-4 mb-0 mb-md-0 text-white text-decoration-none" id="logo" th:src="@{/img/logo.png}" alt="">
         </a>
        
         <ul id="menuList" class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a th:href="@{/home/home.do}" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+          <li><a th:href="@{/qna/list.do}"  class="nav-link px-2 text-white">FAQs</a></li>
+          <li><a th:href="@{/notice/list.do}" class="nav-link px-2 text-white">About</a></li>
           <li><a href="#" class="nav-link px-2 text-white">관리자</a></li>
         </ul>
-        <div id="menuLogin" class="col-md-4 text-end">
-          <button type="button" class="btn btn-outline-light me-0">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+        <div id="menuLogin" class="col-md-4 text-end" th:if="${session.loginId != null}">
+		<span th:text="${session.loginId}"></span>님 환영합니다.
+           <a th:href="@{/user/mypage.do}" class="btn btn-outline-light me-0" role=button>마이페이지</a>
+           <a th:href="@{/user/logout.do}" class="btn btn-outline-light me-0" role=button>Logout</a>
+        </div>
+          <div id="menuLogin" class="col-md-4 text-end" th:unless="${session.loginId != null}">
+           <a th:href="@{/user/login.do}" class="btn btn-outline-light me-0" role=button>Login</a>
+           <a th:href="@{/user/join.do}" class="btn btn-outline-light me-0" role=button>Sign-up</a>
         </div>
         <div class="slide-open" id="slide-open">
             <span class="burgur" id="burgur">
