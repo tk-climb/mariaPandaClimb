@@ -156,19 +156,12 @@
          <div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
 		<table>
 			<tr th:each="delete : ${deleteList}">
-				<td th:text="${delete.productNo}"></td>
-				<td th:text="${delete.productNm}"></td>
-				<td th:text="${delete.productPrice}"></td>
-				<td th:text="${delete.productAtNo}"></td>
+				<td style="border-bottom: 1px solid lightgray;" th:text="${delete.productNm}"></td>
+				<td style="border-bottom: 1px solid lightgray;" th:text="${delete.productPrice}"></td>
+				<td style="border-bottom: 1px solid lightgray;" th:text="${delete.productAtNo}"></td>
+				<input type="hidden" th:value="${delete.categorySub}">
+				<td><input type="button" th:attr="onclick=|javascript:productDelete('${delete.productNo}','${delete.productAtNo}','${delete.categorySub}')|" value="삭제하기"/></td>
 			</tr>
-			<div>
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-				  <label class="form-check-label" for="flexCheckChecked">
-						상품명 : [(${delete.productNm})], 가격 :
-				  </label>
-				</div>
-			</div>
 		</table>
 		 <div>
 				
@@ -218,6 +211,32 @@
    </div>
 
     <script>
+	function productDelete(productNo,productAtNo,categorySub){
+		
+		var data = new FormData();
+		
+      	data.append("productNo",productNo);
+      	data.append("productAtNo",productAtNo);
+      	data.append("categorySub",categorySub);
+      
+       	jQuery.ajax({
+           url : "productDelete.do"
+         , type : "POST"
+         , processData : false
+         , contentType : false
+         , data : data
+         , success:function(response) {
+             alert("성공하였습니다.");
+             location.reload(); // 등록후 새로고침 안하면 방금 등록한 내용이 안보임
+         }
+         ,error: function (jqXHR) 
+         { 
+             alert(jqXHR.responseText); 
+         }
+     	});
+		
+	}
+		
 	function previewNm(){
 	  const name = document.getElementById('productNm').value;
 	  document.getElementById("previewNm").innerText = name;
@@ -238,14 +257,14 @@
             
             var tab_id = $(this).attr('tab-alias'); // 탭의 별칭을 짓고 그 속성을 attr(갖고있으면) tab_id에 초기화.
             
-             $('.tab-link').removeClass('active'); // active 클래스를 지움으로써 active 스타일 없어짐.
+            $('.tab-link').removeClass('active'); // active 클래스를 지움으로써 active 스타일 없어짐.
             $('.tab-content').removeClass('active'); // 컨텐츠는 기본값이 none이라 active 지움으로서 사라짐.
             $('.tab-item').removeClass('active'); // 이전에 있던 nav-item 클래스의 active클래스를 전부 없앰.
             
             $(this).find("a").addClass('active'); // 클릭한 값의 자식 a태그를 찾아서 거기에 active클래스를 넣음.  
             $(this).addClass('active'); // 현재 클릭한 값을 active를 넣어줌.
             $('#'+tab_id).addClass('active'); // 컨텐츠도 마찬가지로 넣어줌.
-
+			
           });
        
       });
@@ -350,7 +369,7 @@
          , data : data
          , success:function(response) {
              alert("성공하였습니다.");
-             console.log(response);
+             location.reload(); // 등록후 새로고침 안하면 방금 등록한 내용이 안보임
          }
          ,error: function (jqXHR) 
          { 

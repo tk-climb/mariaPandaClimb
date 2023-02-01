@@ -43,17 +43,42 @@ public class AdminDaoImpl implements AdminDao {
 		return sqlSession.insert("com.study.panda.user.dao.AdminDaoImpl.categoryInsert", cateDto) > 0;
 	}
 
-	// 등록한 상품 조회
+	// 방금 등록한 상품 조회
 	@Override
 	public List<Map<String, Object>> productList(ProductDto productDto){
 		return sqlSession.selectList("com.study.panda.user.dao.AdminDaoImpl.productList",productDto);
 	}
 	
-	// 상품 조회
+	// 관리자 삭제할 상품 조회
 	@Override
 	public List<ProductDto> deleteList(){
 		return sqlSession.selectList("com.study.panda.user.dao.AdminDaoImpl.deleteList");
 	}
 	
+	// 삭제할 첨부 1개 조회
+	public List<Map<String, Object>> attachDelSearch(ProductDto productDto){
+		return sqlSession.selectList("com.study.panda.user.dao.AdminDaoImpl.attachDelSearch", productDto);
+	}
+	
+	// 상품 삭제
+	@Override
+	public boolean productDelete(ProductDto productDto) {
+		return sqlSession.delete("com.study.panda.user.dao.AdminDaoImpl.productDelete", productDto) > 0;
+	}
+	
+	// 첨부파일 삭제
+	public boolean attachDelete(ProductAttachmentDto paDto) {
+		return sqlSession.delete("com.study.panda.user.dao.AdminDaoImpl.attachDelete", paDto) > 0;
+	}
+	
+	// 상품_첨부 삭제
+	public boolean productAttachDelete(ProductDto productDto) {
+		return sqlSession.delete("com.study.panda.user.dao.AdminDaoImpl.productAttachDelete", productDto) > 0;
+	}
+	
+	// 카테고리 삭제
+	public boolean categoryDelete(ProductDto productDto) {
+		return sqlSession.delete("com.study.panda.user.dao.AdminDaoImpl.categoryDelete", productDto) > 0;
+	}
 	
 }
