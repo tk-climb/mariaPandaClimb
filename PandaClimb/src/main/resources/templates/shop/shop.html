@@ -84,21 +84,9 @@
 	<div class="tab-contents-wrap">
 		<div class="tab-content active" id="Shirt">
 			<div class="row col-lg-4 col-md-4 col-sm-12 col-12" style="width: 100%; margin: auto;">
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
-				</div>	
-				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;">
-					<div style="background-color: yellow; height: 70%; width: 100%;">dddddd</div>
-					<div style="background-color: red; height: 20%; width: 100%;">ssssss</div>
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12 product" style="width: 400px; height: 500px;" th:each="shopList : ${shopList}">
+					<div style="background-color: yellow; height: 70%; width: 100%;" th:text="${shopList.productNm}">dddddd</div>
+					<div style="background-color: red; height: 20%; width: 100%;" th:text="${shopList.productPrice}">ssssss</div>
 				</div>	
 			</div>
 		</div>

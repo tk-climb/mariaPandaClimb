@@ -1,7 +1,11 @@
 package com.study.panda.shop.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,10 +15,16 @@ import com.study.panda.shop.dao.ShopDao;
 @RequestMapping(value = "/shop")
 public class ShopController {
 
-		//@Autowired ShopDao shopdao;
+		@Autowired ShopDao shopdao;
 		
-		@GetMapping(value="/shop.do") public String listView() throws Exception{
-  
+		@GetMapping(value="/shop.do") public String listView(Model model) throws Exception{
+
+			List<Map<String, Object>> shopList = shopdao.shopList();	
+			
+			model.addAttribute("shopList",shopList);
+			
+			System.out.println("제발 나와라 : " + model.getAttribute("shopList")); 
+			
 			return "/shop/shop";
 			
 		}
