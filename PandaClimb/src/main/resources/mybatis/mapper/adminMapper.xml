@@ -36,8 +36,35 @@
 		select product_no as productNo, category_sub as categorySub, product_nm as productNm, product_price as productPrice, product_at_no as productAtNo, product_comment as productComment, product_count as productCount from panda_product where product_no = #{productNo}
 	</select>
 	
-		<!-- 등록한 상품 조회 -->
+	<!-- 관리자 삭제할 상품 조회 -->
 	<select id="deleteList" parameterType="ProductDto" resultType="ProductDto">
 		select product_no, category_sub, product_nm, product_price, product_at_no, product_comment, product_count from panda_product
 	</select>
+	
+	<!-- 삭제할 첨부 1개 조회 -->
+	<select id="attachDelSearch" parameterType="ProductDto" resultType="hashmap">
+		select pa_no,product_at_no,attachment_no from product_attachment where product_at_no = #{productAtNo}
+	</select>
+	
+	<!-- 상품 삭제 -->
+	<delete id="productDelete" parameterType="ProductDto">
+		delete from panda_product where product_no = #{productNo}
+	</delete>
+	
+	<!-- 첨부파일 삭제 -->
+	<delete id="attachDelete" parameterType="ProductAttachmentDto">
+		delete from panda_attachment where attachment_no = #{attachmentNo}
+	</delete>
+	
+	<!-- 상품_첨부 삭제 -->
+	<delete id="productAttachDelete" parameterType="ProductDto">
+		delete from product_attachment where product_at_no = #{productAtNo}
+	</delete>
+	
+	<!-- 카테고리 삭제 -->
+	<delete id="categoryDelete" parameterType="ProductDto">
+		delete from panda_category where category_sub = #{categorySub}
+	</delete>
+	
+	
 </mapper>

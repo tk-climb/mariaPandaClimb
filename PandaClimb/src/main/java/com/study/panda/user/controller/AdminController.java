@@ -35,13 +35,33 @@ public class AdminController {
 	
 	@GetMapping(value="/admin.do") public String listView(Model model) throws Exception{
 		
-		//관리자 상품조회
-		List<ProductDto> deleteList = admindao.deleteList(); // delete 리스트 조회
+		//관리자 삭제할 상품 조회
+		List<ProductDto> deleteList = admindao.deleteList();
 		model.addAttribute("deleteList", deleteList); // delete 리스트 담기
 		
 		return "/user/admin";
 	}
 	
+	@PostMapping(value="/productDelete.do")
+	@ResponseBody
+	public String productDelete(ProductDto productDto, ProductAttachmentDto paDto) {
+
+		// 삭제할 상품_첨부 1개 조회
+		List<Map<String, Object>> delList = admindao.attachDelSearch(productDto);
+		
+		// 조회한값 숫자 형식으로 파싱
+		int attachmentNo = Integer.parseInt(delList.get(0).get("attachment_no").toString());
+		
+		// 파싱한 값 담기
+		paDto.setAttachmentNo(attachmentNo);
+		
+		admindao.attachDelete(paDto); // 첨부파일 삭제
+		admindao.productAttachDelete(productDto); // 상품_첨부 삭제
+		admindao.productDelete(productDto); // 상품 삭제
+		admindao.categoryDelete(productDto); // 첨부파일 삭제
+		
+		return "success";
+	}
 	
 	// 관리자 파일 업로드
 	@PostMapping(value="/proUpload.do")
@@ -72,7 +92,7 @@ public class AdminController {
 	            		return "false";
 	            	}
 
-	            	// 상품 조회
+	            	// 방금 등록한 상품 조회
 	            	List<Map<String, Object>> productList = admindao.productList(productDto);
 	            	
 	            	// 조회한결과
