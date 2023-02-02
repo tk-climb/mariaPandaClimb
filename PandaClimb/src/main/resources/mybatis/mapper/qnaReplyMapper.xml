@@ -13,7 +13,7 @@
 	
 	<!-- 댓글 목록-->
 	<select id="list" resultType="QnaReplyDto">
-		select * from qna_reply order by qna_reply_no desc
+		select * from qna_reply where qna_no = #{qnaNo} order by qna_reply_no desc
 	</select>
 	
 	<!-- 댓글 수정 -->

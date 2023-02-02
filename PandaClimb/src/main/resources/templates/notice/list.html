@@ -17,7 +17,7 @@
 
 		<div class="col-8 offset-2">
 			<div>
-			
+				
 				<div class="mt-4">
 					<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
 						<div class="p-4 rounded">
@@ -33,7 +33,6 @@
 								<tr>
 									<th>번호</th>
 									<th width="45%">제목</th>
-									<th>내용</th>
 									<th>작성자 번호</th>
 									<th>작성일</th>
 								</tr>
@@ -43,21 +42,24 @@
 							 <tr th:each="noticeList : ${noticeList}">
 								<td th:text="${noticeList.noticeNo}"></td>    
 						        <td><a th:href="@{|/notice/detail.do?noticeNo=${noticeList.noticeNo}|}" th:text="${noticeList.noticeTitle}"></a></td> 
-						      	<td th:text="${noticeList.noticeContent}"></td>    
 						        <td th:text="${noticeList.userNo}"></td>    
 						        <td th:text="${noticeList.noticeDate}"></td>    
 						    
 							</tr>
 							</tbody>
-							
+							<tfoot>
+								<tr >
+									<td colspan="6">
+										<a th:href="@{/notice/insert.do}" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100" role=button>공지사항 등록</a>
+									</td>
+								</tr>
+							</tfoot>
 						</table>
 					</div>
 				</div>
-				<a th:href="@{/notice/insert.do}" class = "btn w-100 mybtn"  role=button style="font-size: 23px">공지사항 등록</a>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
 
 </html>

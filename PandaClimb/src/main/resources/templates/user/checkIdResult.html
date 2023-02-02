@@ -20,7 +20,7 @@
 </div>
 
 	<div class="col-md-8 offset-md-2 my-4 mb-4">
-		<div class="text-center id1">
+		<div class="text-center">
 			회원님의 아이디는  &nbsp;&nbsp; 
 			<span th:text="${checkId}"></span>
 			
@@ -28,14 +28,15 @@
 		</div>
 	</div>		
 
-<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mt-5">
-	<div class="row text-center mb-2">
-		<a th:href="@{/user/login.do}"  class="btn w-100" style="background-color : #E6E6E6; color:#3E4684;" role="button">로그인 하기</a>
-	</div>
-	<div class="row text-center mb-4 mt-1">
-		<a th:href="@{/user/checkPw.do}" class="btn w-100 " style="background-color : #E6E6E6; color:#3E4684;" role="button">비밀번호 찾기</a>
-	</div>
-</div>
+    <div class="row mt-4 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+      <div class=" col ">
+      	<a th:href="@{/user/login.do}"  class="btn w-100" style="background-color : #E6E6E6; color:#3E4684;" role="button">로그인 하기</a>
+      </div>
+      <div class=" col" >
+      	<a th:href="@{/user/checkPw.do}" class="btn w-100 " style="background-color : #E6E6E6; color:#3E4684;" role="button">비밀번호 찾기</a>
+      </div>
+   </div>
+
 	
 </body>
 
