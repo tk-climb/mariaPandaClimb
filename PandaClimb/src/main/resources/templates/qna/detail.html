@@ -56,7 +56,7 @@
 	</div>
 	
 	
-	<div class="row mt-4 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+	<div class="row mt-4 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mb-4">
 		
 			<div class=" col " >
 				<a th:href="@{/qna/list.do}" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100"  role=button>목록</a>
@@ -71,13 +71,11 @@
 	
 <hr>
 
-<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
+<div class="row mt-4 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 mb-4">
 	<table class="table-reply-list">
 		<tbody th:each="replyList : ${replyList}">
 			<tr class="view" >
 				<td>
-				답변자 : <p th:text="${replyList.userNo}"></p>
-				<br>
 		      	<pre th:text="${replyList.qnaReplyContent}"></pre>  
 		      	<br>  
 		        답변일 : <p th:text="${replyList.qnaReplyDate}"></p>    

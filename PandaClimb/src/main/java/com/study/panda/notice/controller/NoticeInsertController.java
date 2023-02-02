@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.panda.common.dto.NoticeDto;
 import com.study.panda.notice.dao.NoticeDao;
@@ -27,7 +26,12 @@ public class NoticeInsertController {
 	
 	@PostMapping(value="/insert.do")
 	public String insert(HttpSession session,@ModelAttribute NoticeDto noticeDto)  {
+
+		Integer loginNo =  (Integer) session.getAttribute("userNo");
+		noticeDto.setUserNo(loginNo);
+	//	System.out.println(noticeDto.getUserNo());
 		noticeDao.insert(noticeDto);
+
 		return "redirect:list.do";
 }
 	

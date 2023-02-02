@@ -33,6 +33,8 @@ public class QnaInsertController {
 	
 	@PostMapping("/insert.do")
 	public String insert(HttpSession session,@ModelAttribute QnaDto qnaDto)  {
+		Integer loginNo =  (Integer) session.getAttribute("userNo");
+		qnaDto.setUserNo(loginNo);
 		qnaDao.insert(qnaDto);
 		return "redirect:list.do";
 	}
