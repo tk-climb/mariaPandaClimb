@@ -43,8 +43,13 @@ public class LoginController {
 		int userLoign = userDao.login(map);
 		
 		if (userLoign > 0) {
+			
 			session.setAttribute(SessionConstant.ID, userDto.getUserId());
+			String loginId = (String) session.getAttribute(SessionConstant.ID);
+			userDto = userDao.selectOne(loginId);
+			//System.out.println("userDto11" + userDto);
 			session.setAttribute(SessionConstant.GRADE, userDto.getUserGrade());
+			session.setAttribute("userNo", userDto.getUserNo());
 			//로그인 시간 갱신
 			userDao.updateLoginTime(userDto.getUserId());
 			return "redirect:/login.do";
@@ -61,6 +66,7 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute(SessionConstant.ID);
 		session.removeAttribute(SessionConstant.GRADE);
+		session.removeAttribute("userNo");
 		return "redirect:login.do";
 	}
 }

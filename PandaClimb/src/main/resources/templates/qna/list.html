@@ -17,11 +17,11 @@
 
 		<div class="col-8 offset-2">
 			<div>
-				
+			
 				<div class="mt-4">
 					<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
 						<div class="p-4 rounded">
-							<h1 class="text-center">NOTICE</h1>
+							<h1 class="text-center">문의사항</h1>
 						</div>
 					</div>
 				</div>
@@ -39,18 +39,25 @@
 							</thead>
 							
 							<tbody class="text-center" >
-							 <tr th:each="noticeList : ${noticeList}">
-								<td th:text="${noticeList.noticeNo}"></td>    
-						        <td><a th:href="@{|/notice/detail.do?noticeNo=${noticeList.noticeNo}|}" th:text="${noticeList.noticeTitle}"></a></td> 
-						        <td th:text="${noticeList.userNo}"></td>    
-						        <td th:text="${noticeList.noticeDate}"></td>    
-						    
+							 <tr th:each="qnaList : ${qnaList}">
+								<td th:text="${qnaList.qnaNo}"></td>    
+						        <td>
+									<a th:href="@{|/qna/detail.do?qnaNo=${qnaList.qnaNo}|}" th:text="${qnaList.qnaTitle}"></a>
+									 <div th:if="${qnaList.qnaState == 'Y'}">
+								       [답변 예정]
+								 	 </div>
+								 	 <div th:unless="${qnaList.qnaState == 'Y'}">
+								    	[답변 등록]
+								       </div>
+								</td>  
+						        <td th:text="${qnaList.userNo}"></td>    
+						        <td th:text="${qnaList.qnaDate}"></td>    
 							</tr>
 							</tbody>
 							<tfoot>
 								<tr >
 									<td colspan="6">
-										<a th:href="@{/notice/insert.do}" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100" role=button>공지사항 등록</a>
+										<a th:href="@{/qna/insert.do}" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100" role=button>문의사항 등록</a>
 									</td>
 								</tr>
 							</tfoot>
@@ -60,6 +67,7 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>

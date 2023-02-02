@@ -11,22 +11,20 @@
 
 <body>
 <div style="padding-top:75px;"></div>
-	<div>
-	<div class="row">
     
 	<div class=" rounded mt-5">
 		<h1 class="text-center">My page</h1>	
 	</div>
+	
 	<div class = "col-8 offset-2">
           <div class = "row">
-              <div class="col-3" >
+              <div class="col-3 mt-4" >
 				 	<a th:href="@{/user/edit.do?(userId=${session.loginId})}" class = "btn w-100 mybtn"  role=button style="font-size: 23px"> [ 개인정보 수정 ]</a>
 				 	<a th:href="@{/user/password.do?(userId=${session.loginId})}" class = "btn w-100 mybtn"  role=button style="font-size: 23px"> [  비밀번호 변경 ]</a>
 				 	<a th:href="@{/user/goodbye.do?(userId=${session.loginId})}" class = "btn w-100 mybtn"  role=button style="font-size: 23px"> [ 회원탈퇴 ]</a>
               </div>
       
           <div class="col-6 mb-5">
-			<div class="mt-4">
 				<div class="mt-4">
 		            <div class="col-md-10 offset-md-2">
 		                <table class="table table-hover ">
@@ -34,31 +32,31 @@
 		                    <tbody class="text-center" >
 		                        <tr>
 									<th>
-		                           아이디 : 
-									<span th:text="${userDto.userId}"></span>
-									 </th>
+		                           아이디 
+		                           </th>
+		                           <td th:text="${userDto.userId}"></td>
+									 
 		                        </tr>
 		                        <tr>
 									<th>
-		                         	 닉네임 : 
-		                         	 <span th:text="${userDto.userNick}"></span>
-		                         	  </th>
+		                         	 닉네임 
+		                         	 </th>
+		                         	  <td th:text="${userDto.userNick}"></td>
 		                        </tr>
 		                        <tr>
 									<th>
-		                           이메일 : 
-									 <span th:text="${userDto.userEmail}"></span>
-									 </th>
+		                           	이메일 
+		                           	</th>
+		                           	<td th:text="${userDto.userEmail}"></td>
 		                        </tr>
 		                      <tr>
-							  	<th>가입일시 : 
-									 <span th:text="${userDto.userIns}" ></span>
-								</th>
+							  	<th>가입일시 </th>
+							  	<td th:text="${userDto.userIns}"></td>
 							</tr>
 		                    <tr>
-								<th>로그인일시 : 
-								 <span th:text="${userDto.userLoginDate}" ></span>
-								 </th>
+								<th>로그인일시 </th>
+								<td th:text="${userDto.userLoginDate}"></td>
+								 
 							</tr>
 		                    </tbody>
 		                </table>
@@ -67,8 +65,6 @@
 		  </div>
       </div>
       </div>
-    </div>
-	</div>
 	
 </body>
 

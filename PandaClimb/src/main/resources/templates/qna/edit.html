@@ -21,12 +21,12 @@
 
 <div>
 	<form action = "edit.do" method = "post">
-	<input type = "hidden" name = "noticeNo"  th:value="${noticeDto.noticeNo}">
+	<input type = "hidden" name = "qnaNo"  th:value="${qnaDto.qnaNo}">
 		
 	<div class="row mt-4">
 		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
 			<div class="form-floating">
-    			<input type="text" name="noticeTitle" class="form-control rounded" placeholder="제목" th:value="${noticeDto.noticeTitle}">
+    			<input type="text" name="qnaTitle" class="form-control rounded" placeholder="제목" th:value="${qnaDto.qnaTitle}">
               		<label>
                     제목
                     </label>
@@ -37,7 +37,7 @@
  	<div class="row mt-4">
 		<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
 			<div class="form-floating">
-				<textarea name="noticeContent"  th:value="${noticeDto.noticeContent}"></textarea>
+				<textarea name="qnaContent"  th:value="${qnaDto.qnaContent}"></textarea>
 			</div>
 		</div>
  	</div>
@@ -45,7 +45,7 @@
  	
 	<div class="mb-4 row mt-4 col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
 		<div class=" col">
-			<a th:href="@{/notice/list.do}" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100"  role=button >목록</a>
+			<a th:href="@{/qna/list.do}" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100"   role=button>목록</a>
 		</div>
 		<div class=" col" >
 		<button type="submit" style="background-color : #E6E6E6; color:#3E4684;" class="btn w-100" >수정하기</button>
@@ -55,14 +55,14 @@
 	</form>
 	
 	<script>
-$(function(){
-    $("[name=noticeContent]").summernote({
-        height : 300, // 높이 지정
-        minHeight : 300, // 최소 높이
-        maxHeight : 300, // 최대 높이
-        lang : "ko-KR" // 도움말 한글로 번역, 스크립트 추가해야함
-    })
-});
+	$(function(){
+	    $("[name=qnaContent]").summernote({
+	        height : 300, // 높이 지정
+	        minHeight : 300, // 최소 높이
+	        maxHeight : 300, // 최대 높이
+	        lang : "ko-KR" // 도움말 한글로 번역, 스크립트 추가해야함
+	    })
+	});
 </script>
 </body>
 
